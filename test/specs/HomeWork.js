@@ -4,16 +4,16 @@
  * Verify feelsLikeTempValue is between lowTempValue and highTempValue
  */
 
-describe('Homework', () =>{
+describe('', () =>{
     it ('Verify feelsLikeTempValue is between lowTempValue and highTempValue', async () => {
         await browser.url('https://www.darsky.net/')
         await browser.pause(3000);
-        const feelIsLikeTemp = $('span[class=feels-like-text]').getText();
-        const lowTemp = $('span[class=low-temp-text]').getText();
-        const highTemp = $('span[class=high-temp-text]').getText();
-        const numfeelIsLikeTemp = Number (feelIsLikeTemp.substring(0, feelIsLikeTemp.lenght - 1));
-        const numlowTemp = Number (lowTemp.substring(0, lowTemp.lenght - 1));
-        const numhighTemp = Number (highTemp.substring(0, highTemp.lenght-1));
+        const feelIsLikeTemp = await $('span[class=feels-like-text]').getText();
+        const lowTemp = await $('span[class=low-temp-text]').getText();
+        const highTemp = await $('span[class=high-temp-text]').getText();
+        const numfeelIsLikeTemp = Number (feelIsLikeTemp.substring(0, feelIsLikeTemp.length - 1));
+        const numlowTemp = Number (lowTemp.substring(0, lowTemp.length - 1));
+        const numhighTemp = Number (highTemp.substring(0, highTemp.length - 1));
 
         expect(numfeelIsLikeTemp >= numlowTemp && numfeelIsLikeTemp <= numhighTemp, 'numfeelIsLikeTemp is in between the low and high temp').to.be.true;
         await browser.pause(7000);
@@ -29,7 +29,7 @@ describe('Homework', () =>{
          */
      it  ('Verify user can get temperature based on zipcode',async () =>{
         await browser.url('https://www.darsky.net/');
-        await browser.pause(7000);
+        await browser.pause(3000);
         const zipcodeInputBox = await $('//input[@type="text"]');
         await zipcodeInputBox.setValue(01001)
         await browser.pause(2000);
